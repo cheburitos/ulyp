@@ -3,10 +3,10 @@ package com.agent.tests.recorders.java;
 import com.agent.tests.util.AbstractInstrumentationTest;
 import com.agent.tests.util.ForkProcessBuilder;
 import com.ulyp.core.recorders.basic.ByteBufferRecord;
-import com.ulyp.core.recorders.basic.CharRecord;
 import com.ulyp.storage.tree.CallRecord;
 import org.junit.jupiter.api.Test;
 
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -35,8 +35,8 @@ class ByteBufferRecorderTest extends AbstractInstrumentationTest {
             System.out.println(returnBuf());
         }
 
-        public static ByteBuffer returnBuf() {
-            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(1024);
+        public static Buffer returnBuf() {
+            Buffer byteBuffer = ByteBuffer.allocateDirect(1024);
             byteBuffer = byteBuffer.limit(512);
             return byteBuffer;
         }
