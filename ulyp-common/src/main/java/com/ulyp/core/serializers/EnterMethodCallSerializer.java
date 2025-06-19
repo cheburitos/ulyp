@@ -1,6 +1,6 @@
 package com.ulyp.core.serializers;
 
-import com.ulyp.core.RecordedEnterMethodCall;
+import com.ulyp.core.EnterMethodCall;
 import com.ulyp.core.Type;
 import com.ulyp.core.TypeResolver;
 import com.ulyp.core.bytes.BytesIn;
@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class RecordedEnterMethodCallSerializer {
+public class EnterMethodCallSerializer {
 
-    public static final RecordedEnterMethodCallSerializer instance = new RecordedEnterMethodCallSerializer();
+    public static final EnterMethodCallSerializer instance = new EnterMethodCallSerializer();
 
     public static final byte ENTER_METHOD_CALL_ID = 1;
 
@@ -90,7 +90,7 @@ public class RecordedEnterMethodCallSerializer {
         );
     }
 
-    public static RecordedEnterMethodCall deserialize(BytesIn input, ReadableRepository<Integer, Type> typeResolver) {
+    public static EnterMethodCall deserialize(BytesIn input, ReadableRepository<Integer, Type> typeResolver) {
         int methodId = input.readVarInt();
         long nanoTime = input.readLong();
         int argsCount = input.readVarInt();
@@ -103,7 +103,7 @@ public class RecordedEnterMethodCallSerializer {
 
         ObjectRecord callee = deserializeObject(input, typeResolver);
 
-        return RecordedEnterMethodCall.builder()
+        return EnterMethodCall.builder()
                 .methodId(methodId)
                 .nanoTime(nanoTime)
                 .callee(callee)

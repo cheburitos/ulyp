@@ -11,7 +11,7 @@ import java.time.Duration
  * It represents how much time/calls current call's subtree has in comparison to other calls. Currently, weight can
  * be either time spent or call count.
  */
-class RecordedCallWeight(renderSettings: RenderSettings, node: CallRecord, totalNodeCountInTree: Int, rootDuration: Duration) : Region() {
+class CallWeight(renderSettings: RenderSettings, node: CallRecord, totalNodeCountInTree: Int, rootDuration: Duration) : Region() {
     init {
         // TODO move 600.0 to settings
 

@@ -6,13 +6,13 @@ import javafx.geometry.Pos
 import javafx.scene.layout.StackPane
 import java.time.Duration
 
-class RecordedCallNodeContent(node: CallRecord, renderSettings: RenderSettings, totalNodeCountInTree: Int, rootDuration: Duration) : StackPane() {
+class CallNodeContent(node: CallRecord, renderSettings: RenderSettings, totalNodeCountInTree: Int, rootDuration: Duration) : StackPane() {
 
     init {
         alignment = Pos.CENTER_LEFT
         children.addAll(
-                RecordedCallWeight(renderSettings, node, totalNodeCountInTree, rootDuration),
-                RecordedCallView(node, renderSettings)
+                CallWeight(renderSettings, node, totalNodeCountInTree, rootDuration),
+                CallView(node, renderSettings)
         )
     }
 }

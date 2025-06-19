@@ -1,6 +1,6 @@
 package com.ulyp.core.serializers;
 
-import com.ulyp.core.RecordedExitMethodCall;
+import com.ulyp.core.ExitMethodCall;
 import com.ulyp.core.Type;
 import com.ulyp.core.TypeResolver;
 import com.ulyp.core.bytes.BytesIn;
@@ -13,9 +13,9 @@ import com.ulyp.core.repository.ReadableRepository;
 
 import java.util.Optional;
 
-public class RecordedExitMethodCallSerializer {
+public class ExitMethodCallSerializer {
 
-    public static final RecordedExitMethodCallSerializer instance = new RecordedExitMethodCallSerializer();
+    public static final ExitMethodCallSerializer instance = new ExitMethodCallSerializer();
 
     public static final byte EXIT_METHOD_CALL_ID = 2;
 
@@ -59,13 +59,13 @@ public class RecordedExitMethodCallSerializer {
         );
     }
 
-    public static RecordedExitMethodCall deserialize(BytesIn input, ReadableRepository<Integer, Type> typeResolver) {
+    public static ExitMethodCall deserialize(BytesIn input, ReadableRepository<Integer, Type> typeResolver) {
 
         int callId = input.readVarInt();
         boolean thrown = input.readBoolean();
         long nanoTime = input.readLong();
 
-        return RecordedExitMethodCall.builder()
+        return ExitMethodCall.builder()
                 .returnValue(deserializeObject(input, typeResolver))
                 .thrown(thrown)
                 .callId(callId)

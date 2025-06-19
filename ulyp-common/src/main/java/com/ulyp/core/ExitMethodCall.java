@@ -6,7 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
 @Getter
-public class RecordedExitMethodCall extends RecordedMethodCall {
+public class ExitMethodCall extends MethodCall {
 
     private final long callId;
     private final ObjectRecord returnValue;

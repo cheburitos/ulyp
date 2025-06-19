@@ -14,11 +14,11 @@ import javafx.scene.control.TreeView
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
 
-class RecordingTreeView(
-    recording: RecordedCallTreeItem,
+class CallTreeView(
+    recording: CallTreeItem,
     private val settings: Settings,
     processMetadata: ProcessMetadata,
-    private val sourceCodeView: SourceCodeView) : TreeView<RecordedCallNodeContent>(recording) {
+    private val sourceCodeView: SourceCodeView) : TreeView<CallNodeContent>(recording) {
 
     init {
         styleClass += "ulyp-call-tree-view"
@@ -36,8 +36,8 @@ class RecordingTreeView(
         if (settings.sourceCodeViewerEnabled.get()) {
             val sourceCodeFinder = SourceCodeFinder(processMetadata.classpath)
             selectionModel.selectedItemProperty()
-                .addListener { observable: ObservableValue<out TreeItem<RecordedCallNodeContent>?>?, oldValue: TreeItem<RecordedCallNodeContent>?, newValue: TreeItem<RecordedCallNodeContent>? ->
-                    val selectedNode = newValue as RecordedCallTreeItem?
+                .addListener { observable: ObservableValue<out TreeItem<CallNodeContent>?>?, oldValue: TreeItem<CallNodeContent>?, newValue: TreeItem<CallNodeContent>? ->
+                    val selectedNode = newValue as CallTreeItem?
                     if (selectedNode?.callRecord != null) {
                         val sourceCodeFuture = sourceCodeFinder.find(
                             selectedNode.callRecord.method.type.name
@@ -45,7 +45,7 @@ class RecordingTreeView(
                         sourceCodeFuture.thenAccept { sourceCode: SourceCode? ->
                             Platform.runLater {
                                 val currentlySelected = selectionModel.selectedItem
-                                val currentlySelectedNode = currentlySelected as RecordedCallTreeItem
+                                val currentlySelectedNode = currentlySelected as CallTreeItem
                                 if (selectedNode.callRecord.id == currentlySelectedNode.callRecord.id) {
                                     sourceCodeView.setText(sourceCode, currentlySelectedNode.callRecord.method.name)
                                 }

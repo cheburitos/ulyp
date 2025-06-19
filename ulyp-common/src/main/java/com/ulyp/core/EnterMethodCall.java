@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @SuperBuilder
-public class RecordedEnterMethodCall extends RecordedMethodCall {
+public class EnterMethodCall extends MethodCall {
 
     private final int methodId;
     private final ObjectRecord callee;

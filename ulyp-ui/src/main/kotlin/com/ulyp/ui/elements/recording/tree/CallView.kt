@@ -12,7 +12,7 @@ import javafx.scene.Node
 import javafx.scene.text.TextFlow
 import java.util.function.Consumer
 
-class RecordedCallView(callRecord: CallRecord, renderSettings: RenderSettings) : TextFlow() {
+class CallView(callRecord: CallRecord, renderSettings: RenderSettings) : TextFlow() {
 
     init {
         val text: MutableList<Node> = ArrayList()

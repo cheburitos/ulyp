@@ -8,9 +8,9 @@ import javafx.event.EventHandler
 import javafx.scene.control.TreeItem
 import java.util.function.Consumer
 
-class RecordedCallTreeItem(private val recording: Recording, private val callRecordId: Long, private val renderSettings: RenderSettings) :
-        TreeItem<RecordedCallNodeContent>(
-                RecordedCallNodeContent(
+class CallTreeItem(private val recording: Recording, private val callRecordId: Long, private val renderSettings: RenderSettings) :
+        TreeItem<CallNodeContent>(
+                CallNodeContent(
                         recording.getCallRecord(callRecordId),
                         renderSettings,
                         recording.callCount(),
@@ -22,29 +22,29 @@ class RecordedCallTreeItem(private val recording: Recording, private val callRec
     private var currentCallRecord: CallRecord = recording.getCallRecord(callRecordId)
 
     init {
-        this.addEventHandler(branchCollapsedEvent(), EventHandler<TreeModificationEvent<RecordedCallNodeContent>> {
-            val s = it.treeItem as RecordedCallTreeItem
+        this.addEventHandler(branchCollapsedEvent(), EventHandler<TreeModificationEvent<CallNodeContent>> {
+            val s = it.treeItem as CallTreeItem
             s.unloadChildren()
         })
     }
 
     fun refresh() {
         currentCallRecord = recording.getCallRecord(callRecordId)
-        value = RecordedCallNodeContent(currentCallRecord, renderSettings, recording.callCount(), recording.rootDuration())
+        value = CallNodeContent(currentCallRecord, renderSettings, recording.callCount(), recording.rootDuration())
 
         if (loaded) {
             val newChildren = currentCallRecord.childrenCallIds
             val currentLoadedChildrenCount = children.size
             if (newChildren.size > currentLoadedChildrenCount) {
                 for (i in currentLoadedChildrenCount until newChildren.size) {
-                    children.add(RecordedCallTreeItem(recording, newChildren.getLong(i), renderSettings))
+                    children.add(CallTreeItem(recording, newChildren.getLong(i), renderSettings))
                 }
             }
-            children.forEach(Consumer { node: TreeItem<RecordedCallNodeContent> -> (node as RecordedCallTreeItem).refresh() })
+            children.forEach(Consumer { node: TreeItem<CallNodeContent> -> (node as CallTreeItem).refresh() })
         }
     }
 
-    override fun getChildren(): ObservableList<TreeItem<RecordedCallNodeContent>> {
+    override fun getChildren(): ObservableList<TreeItem<CallNodeContent>> {
         if (!loaded) {
             loadChildren()
         }
@@ -60,10 +60,10 @@ class RecordedCallTreeItem(private val recording: Recording, private val callRec
     }
 
     private fun loadChildren() {
-        val children: MutableList<RecordedCallTreeItem> = ArrayList()
+        val children: MutableList<CallTreeItem> = ArrayList()
         val childrenIds = currentCallRecord.childrenCallIds
         for (i in childrenIds.indices) {
-            children.add(RecordedCallTreeItem(recording, childrenIds.getLong(i), renderSettings))
+            children.add(CallTreeItem(recording, childrenIds.getLong(i), renderSettings))
         }
         super.getChildren().setAll(children)
         loaded = true
