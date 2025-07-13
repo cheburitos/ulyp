@@ -29,9 +29,5 @@ enum class Style(vararg classes: String) {
     CALL_TREE_THROWN("ulyp-call-tree-thrown"),
     CALL_TREE_CALLEE("ulyp-call-tree-callee");
 
-    val cssClasses: List<String>
-
-    init {
-        cssClasses = listOf(*classes)
-    }
+    val cssClasses: List<String> = listOf(*classes)
 }
