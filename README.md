@@ -1,8 +1,18 @@
+<h2 align="center">Ulyp - a tracing debugger for Java/Kotlin</h2>
+
 <div align="center">
-	[![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/cheburitos/ulyp/blob/master/LICENSE)
-	[![Build Status](https://circleci.com/gh/cheburitos/ulyp/tree/master.svg?style=svg)](https://circleci.com/gh/cheburitos/ulyp/tree/master)
-	[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=0xaa4eb_ulyp&metric=alert_status)](https://sonarcloud.io/dashboard?id=0xaa4eb_ulyp)
-	![lines of code](https://raw.githubusercontent.com/cheburitos/ulyp/project-badges/loc-badge.svg)
+
+  <a href="https://github.com/cheburitos/ulyp/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/price-FREE-0098f7.svg" alt="Price">
+  </a>
+  <a href="https://circleci.com/gh/cheburitos/ulyp/tree/master">
+    <img src="https://circleci.com/gh/cheburitos/ulyp/tree/master.svg?style=svg" alt="Build Status">
+  </a>
+  <a href="https://sonarcloud.io/dashboard?id=0xaa4eb_ulyp">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=0xaa4eb_ulyp&metric=alert_status" alt="Quality Gate Status">
+  </a>
+  <img src="https://raw.githubusercontent.com/cheburitos/ulyp/project-badges/loc-badge.svg" alt="Lines of Code">
+
 </div>
 
 ## TL;DR
