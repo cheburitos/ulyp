@@ -1,8 +1,8 @@
-[![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/0xaa4eb/ulyp/blob/master/LICENSE)
-[![Build Status](https://circleci.com/gh/0xaa4eb/ulyp/tree/master.svg?style=svg)](https://circleci.com/gh/0xaa4eb/ulyp/tree/master)
+[![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/cheburitos/ulyp/blob/master/LICENSE)
+[![Build Status](https://circleci.com/gh/cheburitos/ulyp/tree/master.svg?style=svg)](https://circleci.com/gh/cheburitos/ulyp/tree/master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=0xaa4eb_ulyp&metric=alert_status)](https://sonarcloud.io/dashboard?id=0xaa4eb_ulyp)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e76192efb9583aca1170/maintainability)](https://codeclimate.com/github/0xaa4eb/ulyp/maintainability)
-![lines of code](https://raw.githubusercontent.com/0xaa4eb/ulyp/project-badges/loc-badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e76192efb9583aca1170/maintainability)](https://codeclimate.com/github/cheburitos/ulyp/maintainability)
+![lines of code](https://raw.githubusercontent.com/cheburitos/ulyp/project-badges/loc-badge.svg)
 
 ## TL;DR
 
